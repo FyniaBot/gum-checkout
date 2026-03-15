@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GÜM – Redirecionando...</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #0a0a0a;
+      font-family: sans-serif;
+      color: #fff;
+    }
+    .loader {
+      text-align: center;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <div class="spinner"></div>
+    <p>Processando seu pedido...</p>
+  </div>
+
+  <form id="f" method="POST" action="https://gumoriginal.com/comprar/" style="display:none">
+    <input type="hidden" name="add_to_cart" value="307084586">
+    <input type="hidden" name="subscription_frequency_option_id" value="019be73a-ecff-74a8-b5a5-f747dd2a31e3">
+    <input type="hidden" name="subscription_frequency_type" value="every_n_days">
+    <input type="hidden" name="subscription_frequency_value" value="60">
+    <input type="hidden" name="subscription_frequency_discount" value="20">
+    <input type="hidden" name="buy_subscription" value="1">
+    <input type="hidden" name="go_to_checkout" value="1">
+  </form>
+
+  <script>
+    window.onload = function() {
+      setTimeout(function() {
+        document.getElementById('f').submit();
+      }, 300);
+    };
+  </script>
+</body>
+</html>
